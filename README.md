@@ -1,1 +1,222 @@
 ![Screenshot (boat-booking1)](https://github.com/user-attachments/assets/a3f1c5be-bf50-4b0e-a6f3-1bbd6c2976a4)
+
+⛵ Boat Booking App
+
+A full-stack web application for seamless boat rental bookings, complete with user authentication, role-based access control, and Stripe payment integration. Users can browse available boats, book them for various durations, and manage their bookings. Admins have comprehensive control over boats, ports, and user accounts through dedicated dashboards.
+✨ Features
+
+    User Authentication: Secure registration, login, and logout.
+
+    JWT & HttpOnly Cookies: Robust authentication using JSON Web Tokens stored in secure, HttpOnly cookies.
+
+    Role-Based Access Control (RBAC):
+
+        User Role: Browse boats, make bookings, view personal booking history.
+
+        Manager Role: (Future expansion: e.g., view all bookings, manage booking statuses) - Currently, manager functionality is limited, primarily for potential future features or aggregated views.
+
+        Admin Role: Full administrative control via a dedicated dashboard.
+
+    Boat Catalog: View details of available boats, including rates and captain options.
+
+    Flexible Booking Options: Book boats per hour, half-day, or full-day.
+
+    Captain Option: Option to include a captain for an additional fee.
+
+    Stripe Payment Integration: Secure and seamless checkout process using Stripe for payment processing.
+
+    Interactive Port Map:
+
+        Displays all registered ports on an interactive map using Leaflet.
+
+        Clickable markers for each port.
+
+        Popups on marker click showing port name, coordinates, and a list of available boats at that port.
+
+        Boat listings within popups include boat name, type, and an image preview (clickable to open full image).
+
+        Admin users have the ability to delete ports directly from the map popup.
+
+        The map dynamically centers itself based on the locations of the fetched ports.
+
+    Admin Dashboard:
+
+        Boat Management: Create, Read, Update, Delete (CRUD) operations for boats.
+
+        Port Management: CRUD operations for departure/return ports.
+
+        User Management: Create, Read, Update, Delete (CRUD) operations for user accounts, including assigning roles (User, Manager, Admin).
+
+🚀 Technologies Used
+
+This application is built using a modern full-stack architecture.
+
+Frontend:
+
+    React: A declarative, component-based JavaScript library for building user interfaces.
+
+    Material-UI (MUI): A popular React UI framework for beautiful and responsive designs.
+
+    Axios: Promise-based HTTP client for making API requests.
+
+    @mui/x-date-pickers & date-fns: For date selection and formatting.
+
+    Stripe.js: Client-side library for Stripe payment integration.
+
+    React Leaflet: React components for Leaflet maps.
+
+    Leaflet: An open-source JavaScript library for mobile-friendly interactive maps.
+
+Backend:
+
+    Node.js (Express): A fast, unopinionated, minimalist web framework for building APIs.
+
+    Prisma ORM: A next-generation ORM for Node.js and TypeScript, making database access easy and type-safe.
+
+    PostgreSQL: A powerful, open-source relational database.
+
+    jsonwebtoken: For creating and verifying JWTs.
+
+    bcryptjs: For hashing passwords securely.
+
+    cookie-parser: Middleware for parsing cookies from incoming requests.
+
+    Stripe Node.js Library: Server-side library for interacting with the Stripe API.
+
+📦 Getting Started
+
+Follow these instructions to set up and run the project locally.
+Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+    Node.js (LTS version recommended)
+
+    npm (comes with Node.js) or Yarn
+
+    PostgreSQL
+
+    Git
+
+1. Clone the Repository
+
+git clone <your-repository-url>
+cd boat-booking-app
+
+2. Backend Setup
+
+Navigate to the backend directory:
+
+cd backend
+
+2.1. Environment Variables
+
+Create a .env file in the backend directory with the following variables:
+
+DATABASE_URL="postgresql://user:password@localhost:5432/boatbookingdb?schema=public"
+JWT_SECRET="your_jwt_secret_key" # Use a strong, random string
+SERVER_PORT=5000
+CLIENT_URL="http://localhost:3000" # URL of your frontend application
+STRIPE_SECRET_KEY="sk_test_YOUR_STRIPE_SECRET_KEY" # Get this from your Stripe Dashboard
+
+    DATABASE_URL: Replace user, password, and boatbookingdb with your PostgreSQL credentials and database name.
+
+    JWT_SECRET: Generate a strong, random string.
+
+    STRIPE_SECRET_KEY: Obtain your test secret key from your Stripe Dashboard.
+
+2.2. Install Dependencies
+
+npm install # or yarn install
+
+2.3. Setup Database with Prisma
+
+Run Prisma migrations to create the database schema:
+
+npx prisma migrate dev --name init_database # Or a more descriptive name if you already have migrations
+
+If you want to populate your database with some initial data (e.g., sample users, boats, ports), create a prisma/seed.ts file and run:
+
+npx prisma db seed
+
+(You'll need to create prisma/seed.ts first if it doesn't exist, and add seeding logic there).
+2.4. Start the Backend Server
+
+npm start # or npm run dev if you have a dev script using nodemon
+
+The server will run on http://localhost:5000 (or your specified SERVER_PORT).
+3. Frontend Setup
+
+Open a new terminal and navigate to the frontend directory (or your React project root):
+
+cd ../frontend # From backend directory
+
+3.1. Environment Variables
+
+Create a .env file in the frontend directory with the following variables:
+
+REACT_APP_SERVER_URL=http://localhost:5000 # Must match your backend's URL and port
+REACT_APP_STRIPE_PUBLISHABLE_KEY="pk_test_YOUR_STRIPE_PUBLISHABLE_KEY" # Get this from your Stripe Dashboard
+
+    REACT_APP_SERVER_URL: This is crucial. It must point to where your backend server is running.
+
+    REACT_APP_STRIPE_PUBLISHABLE_KEY: Obtain your test publishable key from your Stripe Dashboard.
+
+
+3.2. Install Dependencies
+
+npm install # or yarn install
+
+3.4. Start the Frontend Application
+
+npm start # or yarn start
+
+The frontend application will open in your browser, typically at http://localhost:3000.
+
+👩‍💻 User Roles & Dashboards
+
+The application implements three distinct user roles:
+
+    User:
+
+        Can register, log in, and log out.
+
+        Browse and view details of all available boats and ports.
+
+        Select boats, specify booking type (hourly, half-day, full-day), and duration.
+
+        Option to include a captain.
+
+        Proceed to Stripe checkout for payment.
+
+        View their personal booking history.
+
+    Manager:
+
+        Has access to a dedicated dashboard.
+
+        (Current functionality for Manager is limited to placeholder views, primarily intended for future features like viewing all bookings, managing booking statuses, or generating reports, without administrative CRUD access to core entities.)
+
+    Admin:
+
+        Has full administrative privileges via a dedicated dashboard.
+
+        Boat Management: Create, view, update, and delete boat records.
+
+        Port Management: Create, view, update, and delete port records.
+
+        User Management: View all user accounts, create new users, update user details (including changing roles to User, Manager, or Admin), and delete users.
+
+💳 Testing with Stripe
+
+When testing the payment flow, ensure your Stripe keys are in test mode (pk_test_... and sk_test_...). You can use the following test card numbers (with any future expiration date and any 3-digit CVC, or 4 for Amex):
+
+    Visa: 4242 4242 4242 4242
+
+    Mastercard: 5100 0000 0000 0000
+
+    American Express: 3782 8222 2222 6000
+
+    Discover: 6011 0000 0000 0000
+
+For a comprehensive list of test cards and scenarios (e.g., failed payments), refer to the official Stripe documentation.
