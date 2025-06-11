@@ -53,15 +53,17 @@ A full-stack web application for seamless boat rental bookings, built with React
 
     Admin Dashboard:
 
-        Boat Management: Create, Read, Update, Delete (CRUD) operations for boats.
+        Boat Management: Create, Read, Delete operations for boats.
 
-        Port Management: CRUD operations for departure/return ports.
+        Port Management: Create, Read, Delete operations for departure/return ports.
 
-        User Management: Create, Read, Update, Delete (CRUD) operations for user accounts, including assigning roles (User, Manager, Admin).
+        User Management: Create, Read, Update, Delete operations for user accounts, including assigning roles (User, Manager, Admin).
 
 🚀 Technologies Used
 
-This application is built using a modern full-stack architecture.
+This application leverages a modern full-stack architecture, 
+with TypeScript as the primary language for both the frontend and backend, 
+ensuring type safety and improved developer experience.
 
 Frontend:
 
