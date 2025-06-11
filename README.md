@@ -1,5 +1,8 @@
 ![Screenshot (boat-booking1)](https://github.com/user-attachments/assets/a3f1c5be-bf50-4b0e-a6f3-1bbd6c2976a4)
 
+![Screenshot (4230)](https://github.com/user-attachments/assets/5e6e0ca7-7654-426c-af28-3dca63c60013)
+
+
 ⛵ Boat Booking App
 
 A full-stack web application for seamless boat rental bookings, built with React, Node.js, Prisma (PostgreSQL), and Stripe payment integration. It comes complete with user authentication, role-based access control, and a secure JWT/HttpOnly cookie system. Users can browse available boats, book them for various durations, and manage their bookings. Admins have comprehensive control over boats, ports, and user accounts through dedicated dashboards.
