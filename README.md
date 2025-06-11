@@ -112,17 +112,20 @@ Backend:
     PostgreSQL
 
     Git
+    
 
 1. Clone the Repository
 
     git clone <your-repository-url>
     cd boat-booking-app
+   
 
-2. Backend Setup
+3. Backend Setup
 
     Navigate to the backend directory:
     
     cd backend
+   
 
 2.1. Environment Variables
 
@@ -162,11 +165,11 @@ Backend:
     
     
 3. Frontend Setup
-4. 
     
     Open a new terminal and navigate to the frontend directory (or your React project root):
     
     cd ../frontend # From backend directory
+   
 
 3.1. Environment Variables
 
