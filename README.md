@@ -97,6 +97,7 @@ Backend:
     cookie-parser: Middleware for parsing cookies from incoming requests.
 
     Stripe Node.js Library: Server-side library for interacting with the Stripe API.
+    
 
 📦 Getting Started
 
@@ -113,14 +114,12 @@ Backend:
 
     Git
     
-
 1. Clone the Repository
 
     git clone <your-repository-url>
     cd boat-booking-app
    
-
-3. Backend Setup
+2. Backend Setup
 
     Navigate to the backend directory:
     
@@ -233,7 +232,8 @@ Backend:
 
 💳 Testing with Stripe
 
-    When testing the payment flow, ensure your Stripe keys are in test mode (pk_test_... and sk_test_...). You can use the following test card numbers (with any future expiration date and any 3-digit CVC, or 4       for Amex):
+    When testing the payment flow, ensure your Stripe keys are in test mode (pk_test_... and sk_test_...). 
+    You can use the following test card numbers (with any future expiration date and any 3-digit CVC, or 4 for Amex):
     
         Visa: 4242 4242 4242 4242
     
