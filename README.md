@@ -11,7 +11,7 @@
 ![Screenshot (boat-booking3)](https://github.com/user-attachments/assets/f35ad4cb-29b7-4bf8-ab91-918b977ed65b)
 
 
-⛵ Boat Booking App
+⛵ ## Boat Booking App
 
 A full-stack web application for seamless boat rental bookings, built with React, Node.js, Prisma (PostgreSQL), and Stripe payment integration. It comes complete with user authentication, role-based access control, and a secure JWT/HttpOnly cookie system. Users can browse available boats, book them for various durations, and manage their bookings. Admins have comprehensive control over boats, ports, and user accounts through dedicated dashboards.
 
@@ -158,6 +158,7 @@ Before you begin, ensure you have the following installed:
     npm start # or npm run dev if you have a dev script using nodemon
     
     The server will run on http://localhost:5000 (or your specified SERVER_PORT).
+    
 3. Frontend Setup
 
     Open a new terminal and navigate to the frontend directory (or your React project root):
