@@ -61,9 +61,9 @@ A full-stack web application for seamless boat rental bookings, built with React
 
 🚀 Technologies Used
 
-This application leverages a modern full-stack architecture, 
-with TypeScript as the primary language for both the frontend and backend, 
-ensuring type safety and improved developer experience.
+        This application leverages a modern full-stack architecture, 
+        with TypeScript as the primary language for both the frontend and backend, 
+        ensuring type safety and improved developer experience.
 
 Frontend:
 
@@ -114,24 +114,24 @@ Before you begin, ensure you have the following installed:
 
 1. Clone the Repository
 
-git clone <your-repository-url>
-cd boat-booking-app
+    git clone <your-repository-url>
+    cd boat-booking-app
 
 2. Backend Setup
 
-Navigate to the backend directory:
-
-cd backend
+    Navigate to the backend directory:
+    
+    cd backend
 
 2.1. Environment Variables
 
-Create a .env file in the backend directory with the following variables:
+    Create a .env file in the backend directory with the following variables:
 
-DATABASE_URL="postgresql://user:password@localhost:5432/boatbookingdb?schema=public"
-JWT_SECRET="your_jwt_secret_key" # Use a strong, random string
-SERVER_PORT=5000
-CLIENT_URL="http://localhost:3000" # URL of your frontend application
-STRIPE_SECRET_KEY="sk_test_YOUR_STRIPE_SECRET_KEY" # Get this from your Stripe Dashboard
+    DATABASE_URL="postgresql://user:password@localhost:5432/boatbookingdb?schema=public"
+    JWT_SECRET="your_jwt_secret_key" # Use a strong, random string
+    SERVER_PORT=5000
+    CLIENT_URL="http://localhost:3000" # URL of your frontend application
+    STRIPE_SECRET_KEY="sk_test_YOUR_STRIPE_SECRET_KEY" # Get this from your Stripe Dashboard
 
     DATABASE_URL: Replace user, password, and boatbookingdb with your PostgreSQL credentials and database name.
 
@@ -141,36 +141,35 @@ STRIPE_SECRET_KEY="sk_test_YOUR_STRIPE_SECRET_KEY" # Get this from your Stripe D
 
 2.2. Install Dependencies
 
-npm install # or yarn install
+    npm install # or yarn install
 
 2.3. Setup Database with Prisma
 
-Run Prisma migrations to create the database schema:
+    Run Prisma migrations to create the database schema:
+    
+    npx prisma migrate dev --name init_database # Or a more descriptive name if you already have migrations
 
-npx prisma migrate dev --name init_database # Or a more descriptive name if you already have migrations
+    If you want to populate your database with some initial data (e.g., sample users, boats, ports), create a prisma/seed.ts file and run:
+    
+    npx prisma db seed
 
-If you want to populate your database with some initial data (e.g., sample users, boats, ports), create a prisma/seed.ts file and run:
-
-npx prisma db seed
-
-(You'll need to create prisma/seed.ts first if it doesn't exist, and add seeding logic there).
 2.4. Start the Backend Server
 
-npm start # or npm run dev if you have a dev script using nodemon
-
-The server will run on http://localhost:5000 (or your specified SERVER_PORT).
+    npm start # or npm run dev if you have a dev script using nodemon
+    
+    The server will run on http://localhost:5000 (or your specified SERVER_PORT).
 3. Frontend Setup
 
-Open a new terminal and navigate to the frontend directory (or your React project root):
-
-cd ../frontend # From backend directory
+    Open a new terminal and navigate to the frontend directory (or your React project root):
+    
+    cd ../frontend # From backend directory
 
 3.1. Environment Variables
 
-Create a .env file in the frontend directory with the following variables:
+    Create a .env.local file in the frontend directory with the following variables:
 
-REACT_APP_SERVER_URL=http://localhost:5000 # Must match your backend's URL and port
-REACT_APP_STRIPE_PUBLISHABLE_KEY="pk_test_YOUR_STRIPE_PUBLISHABLE_KEY" # Get this from your Stripe Dashboard
+    REACT_APP_SERVER_URL=http://localhost:5000 # Must match your backend's URL and port
+    REACT_APP_STRIPE_PUBLISHABLE_KEY="pk_test_YOUR_STRIPE_PUBLISHABLE_KEY" # Get this from your Stripe Dashboard
 
     REACT_APP_SERVER_URL: This is crucial. It must point to where your backend server is running.
 
@@ -179,17 +178,17 @@ REACT_APP_STRIPE_PUBLISHABLE_KEY="pk_test_YOUR_STRIPE_PUBLISHABLE_KEY" # Get thi
 
 3.2. Install Dependencies
 
-npm install # or yarn install
-
-3.4. Start the Frontend Application
-
-npm start # or yarn start
-
-The frontend application will open in your browser, typically at http://localhost:3000.
+    npm install # or yarn install
+    
+    3.4. Start the Frontend Application
+    
+    npm start # or yarn start
+    
+    The frontend application will open in your browser, typically at http://localhost:3000.
 
 👩‍💻 User Roles & Dashboards
 
-The application implements three distinct user roles:
+    The application implements three distinct user roles:
 
     User:
 
@@ -227,11 +226,11 @@ The application implements three distinct user roles:
 
 💳 Testing with Stripe
 
-When testing the payment flow, ensure your Stripe keys are in test mode (pk_test_... and sk_test_...). You can use the following test card numbers (with any future expiration date and any 3-digit CVC, or 4 for Amex):
-
-    Visa: 4242 4242 4242 4242
-
-    Mastercard: 5100 0000 0000 0000
+    When testing the payment flow, ensure your Stripe keys are in test mode (pk_test_... and sk_test_...). You can use the following test card numbers (with any future expiration date and any 3-digit CVC, or 4       for Amex):
+    
+        Visa: 4242 4242 4242 4242
+    
+        Mastercard: 5100 0000 0000 0000
     
 
 For a comprehensive list of test cards and scenarios (e.g., failed payments), refer to the official Stripe documentation.
