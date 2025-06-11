@@ -2,7 +2,8 @@
 
 ⛵ Boat Booking App
 
-A full-stack web application for seamless boat rental bookings, complete with user authentication, role-based access control, and Stripe payment integration. Users can browse available boats, book them for various durations, and manage their bookings. Admins have comprehensive control over boats, ports, and user accounts through dedicated dashboards.
+A full-stack web application for seamless boat rental bookings, built with React, Node.js, Prisma (for PostgreSQL), and Stripe payment integration. It comes complete with user authentication, role-based access control, and a secure JWT/HttpOnly cookie system. Users can browse available boats, book them for various durations, and manage their bookings. Admins have comprehensive control over boats, ports, and user accounts through dedicated dashboards.
+
 ✨ Features
 
     User Authentication: Secure registration, login, and logout.
@@ -195,15 +196,19 @@ The application implements three distinct user roles:
 
         Has access to a dedicated dashboard.
 
-        (Current functionality for Manager is limited to placeholder views, primarily intended for future features like viewing all bookings, managing booking statuses, or generating reports, without administrative CRUD access to core entities.)
+        Viewing all bookings.
+        
+        View all Users.
+        
+        Without administrative CRUD access to core entities.
 
     Admin:
 
         Has full administrative privileges via a dedicated dashboard.
 
-        Boat Management: Create, view, update, and delete boat records.
+        Boat Management: Create, view, and delete boat records.
 
-        Port Management: Create, view, update, and delete port records.
+        Port Management: Create, view,  and delete port records.
 
         User Management: View all user accounts, create new users, update user details (including changing roles to User, Manager, or Admin), and delete users.
 
@@ -214,9 +219,6 @@ When testing the payment flow, ensure your Stripe keys are in test mode (pk_test
     Visa: 4242 4242 4242 4242
 
     Mastercard: 5100 0000 0000 0000
-
-    American Express: 3782 8222 2222 6000
-
-    Discover: 6011 0000 0000 0000
+    
 
 For a comprehensive list of test cards and scenarios (e.g., failed payments), refer to the official Stripe documentation.
