@@ -62,9 +62,9 @@ A full-stack web application for seamless boat rental bookings, built with React
 
 🚀 Technologies Used
 
-        This application leverages a modern full-stack architecture, 
-        with TypeScript as the primary language for both the frontend and backend, 
-        ensuring type safety and improved developer experience.
+    This application leverages a modern full-stack architecture, 
+    with TypeScript as the primary language for both the frontend and backend, 
+    ensuring type safety and improved developer experience.
 
 Frontend:
 
@@ -100,10 +100,10 @@ Backend:
 
 📦 Getting Started
 
-Follow these instructions to set up and run the project locally.
-Prerequisites
-
-Before you begin, ensure you have the following installed:
+    Follow these instructions to set up and run the project locally.
+    Prerequisites
+    
+    Before you begin, ensure you have the following installed:
 
     Node.js (LTS version recommended)
 
@@ -160,8 +160,10 @@ Before you begin, ensure you have the following installed:
     
     The server will run on http://localhost:5000 (or your specified SERVER_PORT).
     
+    
 3. Frontend Setup
-
+4. 
+    
     Open a new terminal and navigate to the frontend directory (or your React project root):
     
     cd ../frontend # From backend directory
