@@ -25,7 +25,7 @@ A full-stack web application for seamless boat rental bookings, built with React
 
         User Role: Browse boats, make bookings, view personal booking history.
 
-        Manager Role: (Future expansion: e.g., view all bookings, manage booking statuses) - Currently, manager functionality is limited, primarily for potential future features or aggregated views.
+        Manager Role: View all bookings, view all users.
 
         Admin Role: Full administrative control via a dedicated dashboard.
 
