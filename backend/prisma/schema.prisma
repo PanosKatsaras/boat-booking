@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+  // Default location: node_modules/.prisma/client
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // Database connection URL from .env file
+}
+
+// Enum to define different types of boats
+enum BoatType {
+  SMALL
+  NORMAL
+  SPEED_BOAT
+  MOTOR_YACHT
+}
+
+// Enum to define different user roles for authorization
+enum Role {
+  ADMIN   // Full access
+  USER    // Standard user
+  MANAGER // Can manage certain aspects
+}
+
+// User model: Represents a user in the system
+model User {
+  id        String   @id @default(uuid()) // Unique ID for the user, auto-generated UUID
+  email     String   @unique              // Unique email address for login
+  password  String                        // Hashed password for security
+  name      String?                       // Optional name for the user
+  role      Role     @default(USER)       // Default role for new users is 'USER'
+  bookings  Booking[]                     // Relation to Booking model (one-to-many)
+  createdAt DateTime @default(now())      // Timestamp for when the user was created
+  updatedAt DateTime @updatedAt           // Timestamp for when the user was last updated
+}
+
+// Port model: Represents a boat's home port or a pick-up/drop-off location
+model Port {
+  id        String   @id @default(uuid()) // Unique ID for the port
+  name      String                        // Name of the port
+  latitude  Float                         // Latitude coordinate of the port
+  longitude Float                         // Longitude coordinate of the port
+  boats     Boat[]                        // Relation to Boat model (one-to-many)
+  bookings  Booking[]                     // Relation to Booking model (one-to-many)
+}
+
+// Boat model: Represents a boat available for booking
+model Boat {
+  id          String    @id @default(uuid()) // Unique ID for the boat
+  name        String                         // Name of the boat
+  type        BoatType                       // Type of boat (from BoatType enum)
+  portId      String                         // Foreign key to the Port it belongs to
+  port        Port      @relation(fields: [portId], references: [id]) // Relation to Port model (many-to-one)
+  bookings    Booking[]                      // Relation to Booking model (one-to-many)
+  imageUrl    String?                        // Optional URL for a boat image
+  hourlyRate  Float                          // Price per hour
+  halfDayRate Float                          // Price for a half-day
+  fullDayRate Float                          // Price for a full-day
+}
+
+// Booking model: Represents a user's booking of a boat
+model Booking {
+  id           String   @id @default(uuid()) // Unique ID for the booking
+  // Make userId nullable and set onDelete to SetNull.
+  userId       String?                       // Foreign key to the User who made the booking (nullable)
+  // Make boatId nullable and set onDelete to SetNull.
+  boatId       String?                       // Foreign key to the Boat being booked (nullable)
+  // Make portId nullable and set onDelete to SetNull.
+  portId       String?                       // Foreign key to the Port for the booking(nullable)
+  startTime    DateTime                      // Start time of the booking
+  endTime      DateTime                      // End time of the booking
+  price        Float                         // Total price calculated for this booking
+  paid         Boolean  @default(false)      // Payment status (false by default)
+  includeCaptain Boolean @default(false)     // Whether a captain is included in the booking
+  createdAt    DateTime @default(now())      // Timestamp for when the booking record was created
+
+  // Relations to User, Boat, and Port models with onDelete: SetNull
+  // If the related User is deleted, userId in Booking is set to null.
+  user         User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  // If the related Boat is deleted, boatId in Booking is set to null.
+  boat         Boat?     @relation(fields: [boatId], references: [id], onDelete: SetNull)
+  // If the related Port is deleted, portId in Booking is set to null.
+  port         Port?     @relation(fields: [portId], references: [id], onDelete: SetNull)
+}
+
