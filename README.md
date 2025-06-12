@@ -160,7 +160,7 @@ Backend:
 
 2.4. Start the Backend Server
 
-    npm start # or npm run dev if you have a dev script using nodemon
+    npm run dev using nodemon
     
     The server will run on http://localhost:5000 (or your specified SERVER_PORT).
     
